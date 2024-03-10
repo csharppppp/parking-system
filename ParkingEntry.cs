@@ -149,26 +149,6 @@ namespace Parking
             }
 
 
-
-            // Add items to comboBoxModel based on the selected item in comboBoxType
-            /*   switch (selectedItem)
-               {
-                   case "Option 1":
-                       comboBoxModel.Items.Add("Suboption A");
-                       comboBoxModel.Items.Add("Suboption B");
-                       comboBoxModel.Items.Add("Suboption C");
-                       break;
-                   case "Option 2":
-                       comboBoxModel.Items.Add("Suboption X");
-                       comboBoxModel.Items.Add("Suboption Y");
-                       comboBoxModel.Items.Add("Suboption Z");
-                       break;
-                   // Add more cases as needed for other options
-                   default:
-                       // Handle other cases if needed
-                       break;
-               }*/
-
         }
 
         private void comboBoxModel_SelectedIndexChanged(object sender, EventArgs e)

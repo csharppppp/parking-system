@@ -37,8 +37,9 @@ namespace Parking
             var parkingRecordsManager = ParkingRecordsManager.Instance;
             var allParkingRecords = parkingRecordsManager.GetAllParkingRecords();
 
-            foreach (var record in allParkingRecords)
+            for (int i = allParkingRecords.Count - 1; i >= 0; i--)
             {
+                var record = allParkingRecords[i];
                 if (record.Status != "Cleared")
                 {
                     ParkOutList POL = new ParkOutList(flowPanelVH, this, label4, label8);
@@ -104,8 +105,9 @@ namespace Parking
             var parkingRecordsManager = ParkingRecordsManager.Instance;
             var allParkingRecords = parkingRecordsManager.GetAllParkingRecords();
 
-            foreach (var record in allParkingRecords)
+            for (int i = allParkingRecords.Count - 1; i >= 0; i--)
             {
+                var record = allParkingRecords[i];
                 if (record.PlateNumber == palteNum)
                 {
                     if (!double.TryParse(enterAmt.Text, out double amt))
@@ -115,13 +117,19 @@ namespace Parking
                         return;
                     }
 
-                    if (amt >= record.Amount && (label4.Text != ""))
+                    if (amt >= record.Amount && (label4.Text != "") )
                     {
+                        if (record.Status != "Cleared") {
                         change.Text = (amt - record.Amount).ToString(); // Calculate change
                         record.Status = "Cleared";
                         label8.Text = "Successfully paid the amount!";
                         label8.ForeColor = Color.LightGreen;
                         Parking?.Invoke(this, EventArgs.Empty);
+                        listOfVehicle.Controls.Clear();
+                        }else
+                            MessageBox.Show("Already paid amount!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
                     }
                     else if (label4.Text == "")
                     {
@@ -155,8 +163,9 @@ namespace Parking
             var allParkingRecords = parkingRecordsManager.GetAllParkingRecords();
             bool foundRecord = false;
             int count = 0;
-            foreach (var record in allParkingRecords)
+            for (int i = allParkingRecords.Count - 1; i >= 0; i--)
             {
+                var record = allParkingRecords[i];
                 if (record.Status != "Cleared")
                 {
                     ParkOutList POL = new ParkOutList(flowPanelVH, this, label4, label8);
@@ -179,6 +188,7 @@ namespace Parking
             label8.Text = "";
             change.Text = "";
             enterAmt.Text = "";
+            searchVHTxt.Text = "";
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -187,15 +197,18 @@ namespace Parking
             var parkingRecordsManager = ParkingRecordsManager.Instance;
             var allParkingRecords = parkingRecordsManager.GetAllParkingRecords();
             bool foundRecord = false;
-            foreach (var record in allParkingRecords)
+            for (int i = allParkingRecords.Count - 1; i >= 0; i--)
             {
-                if (record.PlateNumber.Contains(searchVHTxt.Text))
-                {
-                    ParkOutList POL = new ParkOutList(flowPanelVH, this, label4, label8);
-                    POL.UpdateLabels(record);
-                    POL.ParkingRecordAdded += ParkOutList_ParkingRecordAdded;
-                    listOfVehicle.Controls.Add(POL);
-                    foundRecord = true;
+                var record = allParkingRecords[i];
+                if (record.Status != "Cleared") {
+                    if (record.PlateNumber.Contains(searchVHTxt.Text))
+                    {
+                        ParkOutList POL = new ParkOutList(flowPanelVH, this, label4, label8);
+                        POL.UpdateLabels(record);
+                        POL.ParkingRecordAdded += ParkOutList_ParkingRecordAdded;
+                        listOfVehicle.Controls.Add(POL);
+                        foundRecord = true;
+                    }
                 }
 
             }
@@ -211,9 +224,10 @@ namespace Parking
         {
             listOfVehicle.Controls.Clear();
             var parkingRecordsManager = ParkingRecordsManager.Instance;
-            var allParkingRecords = parkingRecordsManager.GetAllParkingRecords();  
-            foreach (var record in allParkingRecords)
+            var allParkingRecords = parkingRecordsManager.GetAllParkingRecords();
+            for (int i = allParkingRecords.Count - 1; i >= 0; i--)
             {
+                var record = allParkingRecords[i];
                 if (record.Status != "Cleared")
                 {
                     ParkOutList POL = new ParkOutList(flowPanelVH, this, label4, label8);
