@@ -45,24 +45,33 @@
             button2 = new Button();
             timer1 = new System.Windows.Forms.Timer(components);
             sidebarTransition = new System.Windows.Forms.Timer(components);
+            title = new Label();
+            inValidPN = new Label();
+            invalidT = new Label();
+            inValidM = new Label();
+            inValidD = new Label();
+            invalid = new Label();
+            button3 = new Button();
+            panel1 = new Panel();
             SuspendLayout();
             // 
             // palteNo
             // 
             palteNo.AutoSize = true;
             palteNo.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            palteNo.ForeColor = Color.White;
-            palteNo.Location = new Point(44, 134);
+            palteNo.ForeColor = Color.Ivory;
+            palteNo.Location = new Point(221, 252);
             palteNo.Name = "palteNo";
-            palteNo.Size = new Size(95, 28);
+            palteNo.Size = new Size(99, 28);
             palteNo.TabIndex = 0;
-            palteNo.Text = "Plate No.";
+            palteNo.Text = "Plate No*";
             // 
             // plateNo
             // 
-            plateNo.Location = new Point(148, 134);
+            plateNo.Font = new Font("Segoe UI", 13.8F);
+            plateNo.Location = new Point(345, 242);
             plateNo.Name = "plateNo";
-            plateNo.Size = new Size(352, 27);
+            plateNo.Size = new Size(352, 38);
             plateNo.TabIndex = 1;
             // 
             // type
@@ -70,37 +79,39 @@
             type.AutoSize = true;
             type.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             type.ForeColor = Color.White;
-            type.Location = new Point(41, 200);
+            type.Location = new Point(247, 334);
             type.Name = "type";
-            type.Size = new Size(55, 28);
+            type.Size = new Size(64, 28);
             type.TabIndex = 2;
-            type.Text = "Type";
+            type.Text = "Type*";
             // 
             // model
             // 
             model.AutoSize = true;
             model.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             model.ForeColor = Color.White;
-            model.Location = new Point(38, 277);
+            model.Location = new Point(232, 420);
             model.Name = "model";
-            model.Size = new Size(70, 28);
+            model.Size = new Size(79, 28);
             model.TabIndex = 4;
-            model.Text = "Model";
+            model.Text = "Model*";
             // 
             // comboBoxModel
             // 
+            comboBoxModel.Font = new Font("Segoe UI", 13.8F);
             comboBoxModel.FormattingEnabled = true;
-            comboBoxModel.Location = new Point(148, 277);
+            comboBoxModel.Location = new Point(345, 409);
             comboBoxModel.Name = "comboBoxModel";
-            comboBoxModel.Size = new Size(350, 28);
+            comboBoxModel.Size = new Size(350, 39);
             comboBoxModel.TabIndex = 5;
             comboBoxModel.SelectedIndexChanged += comboBoxModel_SelectedIndexChanged;
             // 
             // driver
             // 
-            driver.Location = new Point(716, 131);
+            driver.Font = new Font("Segoe UI", 13.8F);
+            driver.Location = new Point(345, 496);
             driver.Name = "driver";
-            driver.Size = new Size(352, 27);
+            driver.Size = new Size(350, 38);
             driver.TabIndex = 9;
             // 
             // label5
@@ -108,7 +119,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(607, 130);
+            label5.Location = new Point(245, 496);
             label5.Name = "label5";
             label5.Size = new Size(66, 28);
             label5.TabIndex = 8;
@@ -116,18 +127,20 @@
             // 
             // comboBoxType
             // 
+            comboBoxType.Font = new Font("Segoe UI", 13.8F);
             comboBoxType.FormattingEnabled = true;
-            comboBoxType.Location = new Point(148, 204);
+            comboBoxType.Location = new Point(345, 323);
             comboBoxType.Name = "comboBoxType";
-            comboBoxType.Size = new Size(350, 28);
+            comboBoxType.Size = new Size(350, 39);
             comboBoxType.TabIndex = 10;
             comboBoxType.SelectedIndexChanged += comboBoxType_SelectedIndexChanged;
             // 
             // phoneNo
             // 
-            phoneNo.Location = new Point(716, 205);
+            phoneNo.Font = new Font("Segoe UI", 13.8F);
+            phoneNo.Location = new Point(345, 583);
             phoneNo.Name = "phoneNo";
-            phoneNo.Size = new Size(352, 27);
+            phoneNo.Size = new Size(350, 38);
             phoneNo.TabIndex = 12;
             // 
             // label1
@@ -135,7 +148,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(607, 204);
+            label1.Location = new Point(207, 583);
             label1.Name = "label1";
             label1.Size = new Size(104, 28);
             label1.TabIndex = 11;
@@ -146,50 +159,152 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(607, 277);
+            label2.Location = new Point(108, 679);
             label2.Name = "label2";
-            label2.Size = new Size(203, 28);
+            label2.Size = new Size(212, 28);
             label2.TabIndex = 13;
-            label2.Text = "Date/Time departure";
+            label2.Text = "Date/Time departure*";
+            label2.Click += label2_Click;
             // 
             // dateDepart
             // 
+            dateDepart.Font = new Font("Segoe UI", 13.8F);
             dateDepart.Format = DateTimePickerFormat.Time;
-            dateDepart.Location = new Point(716, 329);
+            dateDepart.Location = new Point(345, 671);
             dateDepart.Name = "dateDepart";
-            dateDepart.Size = new Size(276, 27);
+            dateDepart.Size = new Size(350, 38);
             dateDepart.TabIndex = 15;
             // 
             // button1
             // 
-            button1.Location = new Point(898, 426);
+            button1.BackColor = SystemColors.GradientInactiveCaption;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            button1.ForeColor = Color.Brown;
+            button1.Location = new Point(345, 787);
             button1.Name = "button1";
-            button1.Size = new Size(94, 29);
+            button1.Size = new Size(95, 34);
             button1.TabIndex = 16;
             button1.Text = "Cancel";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(998, 426);
+            button2.BackColor = SystemColors.GradientInactiveCaption;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            button2.ForeColor = Color.FromArgb(64, 64, 64);
+            button2.Location = new Point(599, 787);
             button2.Name = "button2";
-            button2.Size = new Size(94, 29);
+            button2.Size = new Size(96, 34);
             button2.TabIndex = 17;
-            button2.Text = "Save";
-            button2.UseVisualStyleBackColor = true;
+            button2.Text = "Add vehicle";
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
             // sidebarTransition
             // 
             sidebarTransition.Interval = 10;
             // 
+            // title
+            // 
+            title.AutoSize = true;
+            title.Font = new Font("Cambria", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            title.ForeColor = Color.White;
+            title.Location = new Point(486, 91);
+            title.Name = "title";
+            title.Size = new Size(83, 27);
+            title.TabIndex = 18;
+            title.Text = "Parkin";
+            // 
+            // inValidPN
+            // 
+            inValidPN.AutoSize = true;
+            inValidPN.Font = new Font("Cambria", 10.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            inValidPN.ForeColor = Color.Red;
+            inValidPN.Location = new Point(345, 283);
+            inValidPN.Name = "inValidPN";
+            inValidPN.Size = new Size(0, 20);
+            inValidPN.TabIndex = 19;
+            // 
+            // invalidT
+            // 
+            invalidT.AutoSize = true;
+            invalidT.Font = new Font("Cambria", 10.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            invalidT.ForeColor = Color.Red;
+            invalidT.Location = new Point(345, 365);
+            invalidT.Name = "invalidT";
+            invalidT.Size = new Size(0, 20);
+            invalidT.TabIndex = 20;
+            // 
+            // inValidM
+            // 
+            inValidM.AutoSize = true;
+            inValidM.Font = new Font("Cambria", 10.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            inValidM.ForeColor = Color.Red;
+            inValidM.Location = new Point(345, 451);
+            inValidM.Name = "inValidM";
+            inValidM.Size = new Size(0, 20);
+            inValidM.TabIndex = 21;
+            // 
+            // inValidD
+            // 
+            inValidD.AutoSize = true;
+            inValidD.Font = new Font("Cambria", 10.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            inValidD.ForeColor = Color.Red;
+            inValidD.Location = new Point(345, 712);
+            inValidD.Name = "inValidD";
+            inValidD.Size = new Size(0, 20);
+            inValidD.TabIndex = 22;
+            // 
+            // invalid
+            // 
+            invalid.AutoSize = true;
+            invalid.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            invalid.ForeColor = Color.Lime;
+            invalid.Location = new Point(378, 170);
+            invalid.Name = "invalid";
+            invalid.Size = new Size(0, 28);
+            invalid.TabIndex = 23;
+            // 
+            // button3
+            // 
+            button3.BackColor = SystemColors.GradientInactiveCaption;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
+            button3.ForeColor = Color.Green;
+            button3.Location = new Point(473, 787);
+            button3.Name = "button3";
+            button3.Size = new Size(96, 34);
+            button3.TabIndex = 24;
+            button3.Text = "Clear";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(0, 0, 64);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(986, 57);
+            panel1.TabIndex = 25;
+            // 
             // ParkingEntry
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(26, 22, 71);
-            ClientSize = new Size(1182, 635);
+            ClientSize = new Size(986, 866);
+            Controls.Add(panel1);
+            Controls.Add(button3);
+            Controls.Add(invalid);
+            Controls.Add(inValidD);
+            Controls.Add(inValidM);
+            Controls.Add(invalidT);
+            Controls.Add(inValidPN);
+            Controls.Add(title);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(dateDepart);
@@ -204,6 +319,7 @@
             Controls.Add(comboBoxModel);
             Controls.Add(model);
             Controls.Add(type);
+            Cursor = Cursors.Hand;
             Name = "ParkingEntry";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ParikingEntry";
@@ -230,5 +346,13 @@
         private Button button2;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer sidebarTransition;
+        private Label title;
+        private Label inValidPN;
+        private Label invalidT;
+        private Label inValidM;
+        private Label inValidD;
+        private Label invalid;
+        private Button button3;
+        private Panel panel1;
     }
 }
