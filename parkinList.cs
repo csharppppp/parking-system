@@ -10,16 +10,23 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Parking
-{
+{/// <summary>
+/// ////
+/// </summary>
 
     public partial class parkinList : UserControl
     {
         public event EventHandler ItemRemoved;
+        private System.Windows.Forms.Label numV;
+        private System.Windows.Forms.Label numCV;
+        private System.Windows.Forms.Label numPV;
         edit edt;
-        public parkinList()
+        public parkinList(System.Windows.Forms.Label numV, System.Windows.Forms.Label numCV, System.Windows.Forms.Label numPV)
         {
             InitializeComponent();
-
+            this.numV = numV;
+            this.numCV = numCV;
+            this.numPV = numPV;
         }
 
         private void parkinList_Load(object sender, EventArgs e)
@@ -64,8 +71,9 @@ namespace Parking
             var parkingRecordsManager = ParkingRecordsManager.Instance;
             var allParkingRecords = parkingRecordsManager.GetAllParkingRecords();
 
-            foreach (var record in allParkingRecords)
+            for (int i = allParkingRecords.Count - 1; i >= 0; i--)
             {
+                var record = allParkingRecords[i];
                 if (string.Equals(record.PlateNumber, label1.Text))
                 {
                     // Remove the record from the manager
@@ -77,6 +85,27 @@ namespace Parking
 
                     // Notify the parent that an item is removed
                     ItemRemoved?.Invoke(this, EventArgs.Empty);
+
+
+                    var prm1 = ParkingRecordsManager.Instance;
+                    numV.Text = prm1.GetAllParkingRecords().Count+"";
+
+
+                    var prm2 = ParkingRecordsManager.Instance.GetAllParkingRecords();
+                    int countCleareVehicle = 0;
+                    foreach (var recordCV in prm2) 
+                            if (recordCV.Status == "Cleared") 
+                                countCleareVehicle++;              
+                    numCV.Text = countCleareVehicle+"";
+
+
+                    var prm3 = ParkingRecordsManager.Instance.GetAllParkingRecords();
+                    int countParkedVehicle = 0;
+                    foreach (var recordCV in prm3)
+                        if (recordCV.Status == "PARKED")
+                            countParkedVehicle++;           
+                    numPV.Text = countParkedVehicle + "";
+
 
                     break;
                 }

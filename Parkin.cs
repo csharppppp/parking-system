@@ -12,7 +12,7 @@
     {
     public partial class Parkin : UserControl
     {
-
+        //
 
         ParkingEntry pe1;
         Parkout pOut;
@@ -22,6 +22,8 @@
             //  display();
             filterDisplay("PARKED");
             numV.Text = countVehicle() + "";
+            numPV.Text = countParkedVehicle() + "";
+            numCV.Text = countClearedVehicle() + "";
         }
 
 
@@ -105,8 +107,10 @@
 
         private void ParkingRecordAddedHandler(object sender, EventArgs e)
         {
-            display(); // Update the display when a new parking record is added
+            display(); 
             numV.Text = countVehicle()+"";
+            numPV.Text = countParkedVehicle()+"";
+            numCV.Text = countClearedVehicle()+"";
         }
 
 
@@ -132,15 +136,15 @@
         {
             flowLayoutPanel2.Controls.Clear();
             var parkingRecordsManager = ParkingRecordsManager.Instance;
-            var allParkingRecords = parkingRecordsManager.GetAllParkingRecords();
+            var allParkingRecords = parkingRecordsManager.GetAllParkingRecords(); // Add a semicolon here
 
-            foreach (var record in allParkingRecords)
+            for (int i = allParkingRecords.Count - 1; i >= 0; i--)
             {
-
-                parkinList pL = new parkinList();
+                var record = allParkingRecords[i];
+                // Assuming numV, numCV, numPV are defined elsewhere in your code
+                parkinList pL = new parkinList(numV, numCV, numPV); // Adjust this according to your class constructor
                 pL.UpdateLabels(record);
                 flowLayoutPanel2.Controls.Add(pL);
-
             }
         }
         public void filterDisplay(string category)
@@ -149,17 +153,18 @@
             var parkingRecordsManager = ParkingRecordsManager.Instance;
             var allParkingRecords = parkingRecordsManager.GetAllParkingRecords();
 
-            foreach (var record in allParkingRecords)
+            for (int i = allParkingRecords.Count - 1; i >= 0; i--)
             {
+                var record = allParkingRecords[i];
                 if (record.Status == category)
                 {
-                    parkinList pL = new parkinList();
+                    parkinList pL = new parkinList(numV, numCV,numPV);
                     pL.UpdateLabels(record);
                     flowLayoutPanel2.Controls.Add(pL);
                 }
                 else if (category == "ALL")
                 {
-                    parkinList pL = new parkinList();
+                    parkinList pL = new parkinList(numV, numCV, numPV);
                     pL.UpdateLabels(record);
                     flowLayoutPanel2.Controls.Add(pL);
                 }
@@ -187,11 +192,12 @@
             var parkingRecordsManager = ParkingRecordsManager.Instance;
             var allParkingRecords = parkingRecordsManager.GetAllParkingRecords();
             bool foundRecord = false;
-            foreach (var record in allParkingRecords)
+            for (int i = allParkingRecords.Count - 1; i >= 0; i--)
             {
+                var record = allParkingRecords[i];
                 if (record.PlateNumber.Contains(searchVH.Text))
                 {
-                    parkinList pL = new parkinList();
+                    parkinList pL = new parkinList(numV, numCV,numPV);
                     pL.UpdateLabels(record);
                     flowLayoutPanel2.Controls.Add(pL);
                     foundRecord = true;
@@ -206,11 +212,36 @@
             }
         }
 
-        private int countVehicle() {
-           
+        private int countVehicle() {        
             var parkingRecordsManager = ParkingRecordsManager.Instance;
             return parkingRecordsManager.GetAllParkingRecords().Count;
            
+        }
+        private int countClearedVehicle() {
+            var parkingRecordsManager = ParkingRecordsManager.Instance;
+            var allParkingRecords = parkingRecordsManager.GetAllParkingRecords();
+            int countCleareVehicle = 0;
+            foreach (var record in allParkingRecords)
+            {
+                if (record.Status == "Cleared") 
+                    countCleareVehicle++;
+          
+            }
+            return countCleareVehicle;
+        }
+
+        private int countParkedVehicle()
+        {
+            var parkingRecordsManager = ParkingRecordsManager.Instance;
+            var allParkingRecords = parkingRecordsManager.GetAllParkingRecords();
+            int countParkedVehicle = 0;
+            foreach (var record in allParkingRecords)
+            {
+                if (record.Status == "PARKED")
+                    countParkedVehicle++;
+
+            }
+            return countParkedVehicle;
         }
 
 
