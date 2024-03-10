@@ -10,7 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Parking
-{
+{/// <summary>
+/// ////
+/// </summary>
 
     public partial class parkinList : UserControl
     {
