@@ -14,7 +14,7 @@ namespace Parking
 {
     public partial class ParkingEntry : Form
     {
-        private FlowLayoutPanel flowLayoutPanel2 ;
+        private FlowLayoutPanel flowLayoutPanel2;
         ParkingRecordsManager prm = new ParkingRecordsManager();
         public event EventHandler ParkingRecordAdded;
 
@@ -23,17 +23,17 @@ namespace Parking
         {
             InitializeComponent();
             this.flowLayoutPanel2 = flowLayoutPanel2;
-         }
+        }
 
-        
+
 
         public ParkingEntry()
         {
             InitializeComponent();
- 
+
         }
 
-        
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -49,10 +49,10 @@ namespace Parking
             string model = comboBoxModel.SelectedItem?.ToString();
             string driverName = driver.Text;
             string phoneNUm = phoneNo.Text;
-            
-           
 
-           
+
+
+
             DateTime currentDateTime = DateTime.Now;
             DateTime selectedDateTime = dateDepart.Value;
 
@@ -64,21 +64,21 @@ namespace Parking
 
 
 
-            double flagdown=0;
-            double succeedingAmt=0;
+            double flagdown = 0;
+            double succeedingAmt = 0;
             var vehiclemanger = VehicleManger.Instance;
             var VPM = vehiclemanger.GetVPM();
             foreach (var record in VPM)
             {
-                if(record.vehicleType == type)
+                if (record.vehicleType == type)
                 {
                     flagdown = record.flagDown;
                     succeedingAmt = record.additionalAmtPerHour;
                 }
-               
+
             }
 
-            string parkout = formattedDateTime +" "+ time;
+            string parkout = formattedDateTime + " " + time;
             DateTime toPARKOUT = DateTime.Parse(parkout);
 
 
@@ -117,19 +117,73 @@ namespace Parking
             }
 
 
-            double hours = Math.Round(hour, 1); 
+            double hours = Math.Round(hour, 1);
             double amt = Math.Round(totalAmount, 2);
 
 
-            ParkingRecord carDatails = new ParkingRecord(platenum, type, model, driverName, phoneNUm, ArrivalDate, ArrivalTime, formattedDateTime, time,
-                                               hours, amt, "PARKED");
-             var parkingRecordsManager = ParkingRecordsManager.Instance;
+            int proccedAddItem = 0;
 
-             parkingRecordsManager.AddParkingRecord(carDatails);
-            ParkingRecordAdded?.Invoke(this, EventArgs.Empty);
+            if (platenum != "")
+            {
+                proccedAddItem++;
+                inValidPN.Text = "";
+            }
+            else
+            {
+                inValidPN.Text = "please enter specified value";
+            }
 
-            this.Close();
-    }
+            if (type != null) { 
+                proccedAddItem++;
+            invalidT.Text = "";
+             }
+            else
+            {
+                invalidT.Text = "please enter specified value";
+            }
+            if (model != null)
+            {
+                proccedAddItem++;          
+                inValidM.Text = "";
+            }
+            else
+            {
+                inValidM.Text = "please enter specified value";
+            }
+
+            if (formattedDateTime != null && time != null && toPARKOUT > currentDateTime)
+            {
+                proccedAddItem++;
+                inValidD.Text = "";
+            }
+            else
+            {
+                inValidD.Text = "Invalid Date";
+            }
+
+
+            if (proccedAddItem == 4)
+            {
+                ParkingRecord carDatails = new ParkingRecord(platenum, type, model, driverName, phoneNUm, ArrivalDate, ArrivalTime, formattedDateTime, time,
+                                              hours, amt, "PARKED");
+                var parkingRecordsManager = ParkingRecordsManager.Instance;
+                parkingRecordsManager.AddParkingRecord(carDatails);
+                ParkingRecordAdded?.Invoke(this, EventArgs.Empty);
+                invalid.Text = "Succesfully added new Vehicle!";
+                invalid.ForeColor = Color.Chartreuse;
+               
+            }
+            else
+            {
+                invalid.Text = "Invalid Fields";
+                invalid.ForeColor = Color.Red;
+            }
+
+
+
+
+
+        }
 
 
         private void comboBoxType_SelectedIndexChanged(object sender, EventArgs e)
@@ -137,14 +191,14 @@ namespace Parking
             // Clear existing items in comboBoxModel
             comboBoxModel.Items.Clear();
 
-            // Determine the selected item in comboBoxType
+            
             string selectedItem = comboBoxType.SelectedItem?.ToString();
 
             var vehicleBrand = VehicleBrandMAnger.Instance;
             var VB = vehicleBrand.GetVB();
             foreach (var record in VB)
             {
-                if(record.vehicleType == selectedItem)
+                if (record.vehicleType == selectedItem)
                     comboBoxModel.Items.Add(record.vBrand);
             }
 
@@ -153,11 +207,11 @@ namespace Parking
 
         private void comboBoxModel_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void ParkingEntry_Load(object sender, EventArgs e)
-        {        
+        {
             var vehiclemanger = VehicleManger.Instance;
             var VPM = vehiclemanger.GetVPM();
             foreach (var record in VPM)
@@ -166,11 +220,28 @@ namespace Parking
             }
         }
 
-       
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            invalid.Text = "";
+            inValidPN.Text = "";
+            invalidT.Text = "";
+            inValidM.Text = "";
+            inValidD.Text = "";      
+            plateNo.Text = "";
+            comboBoxType.Text = "";
+            comboBoxModel.Text = "";
+            driver.Text = "";
+            phoneNo.Text = "";
+        }
     }
 
 
 
 
-   
+
 }
