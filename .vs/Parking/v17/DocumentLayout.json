@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\carlconrad\\source\\repos\\park\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{058E0200-F60C-4753-A1A2-1E9E30F6C6FF}|Parking.csproj|C:\\Users\\carlconrad\\source\\repos\\park\\parkingentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{058E0200-F60C-4753-A1A2-1E9E30F6C6FF}|Parking.csproj|c:\\users\\carlconrad\\source\\repos\\park\\parkingentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{058E0200-F60C-4753-A1A2-1E9E30F6C6FF}|Parking.csproj|solutionrelative:parkingentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -39,7 +39,7 @@
       "RelativeMoniker": "D:0:0:{058E0200-F60C-4753-A1A2-1E9E30F6C6FF}|Parking.csproj|solutionrelative:parkout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{058E0200-F60C-4753-A1A2-1E9E30F6C6FF}|Parking.csproj|c:\\users\\carlconrad\\source\\repos\\park\\parkinlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{058E0200-F60C-4753-A1A2-1E9E30F6C6FF}|Parking.csproj|C:\\Users\\carlconrad\\source\\repos\\park\\parkinlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{058E0200-F60C-4753-A1A2-1E9E30F6C6FF}|Parking.csproj|solutionrelative:parkinlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -123,8 +123,7 @@
               "RelativeToolTip": "Parkout.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-07T14:58:47.214Z",
-              "IsPinned": true,
-              "EditorCaption": " [Design]"
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -136,8 +135,7 @@
               "RelativeToolTip": "parkinList.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-07T14:50:14.793Z",
-              "IsPinned": true,
-              "EditorCaption": " [Design]"
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -149,8 +147,7 @@
               "RelativeToolTip": "Parkin.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-07T23:31:00.759Z",
-              "IsPinned": true,
-              "EditorCaption": " [Design]"
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -187,8 +184,7 @@
               "RelativeToolTip": "ParkOutList.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-08T01:29:47.093Z",
-              "IsPinned": true,
-              "EditorCaption": " [Design]"
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -200,8 +196,7 @@
               "RelativeToolTip": "vehicleDetails.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-09T07:34:12.424Z",
-              "IsPinned": true,
-              "EditorCaption": " [Design]"
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -237,8 +232,7 @@
               "RelativeToolTip": "vehicleDetails.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-09T07:42:59.29Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-09T07:42:59.29Z"
             },
             {
               "$type": "Document",
@@ -262,8 +256,7 @@
               "RelativeToolTip": "ParkOutList.cs",
               "ViewState": "AQIAAGIAAAAAAAAAAAA1wFIAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-08T01:34:36.448Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-08T01:34:36.448Z"
             },
             {
               "$type": "Document",
@@ -275,8 +268,7 @@
               "RelativeToolTip": "Parkout.cs",
               "ViewState": "AQIAAF4AAAAAAAAAAAAowHMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-07T15:01:07.399Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-07T15:01:07.399Z"
             },
             {
               "$type": "Document",
@@ -288,8 +280,7 @@
               "RelativeToolTip": "parkinList.cs",
               "ViewState": "AQIAAAwAAAAAAAAAAAAAABAAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-06T10:34:50.339Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-06T10:34:50.339Z"
             },
             {
               "$type": "Document",
@@ -299,7 +290,7 @@
               "RelativeDocumentMoniker": "ParkingEntry.cs",
               "ToolTip": "C:\\Users\\carlconrad\\source\\repos\\park\\ParkingEntry.cs",
               "RelativeToolTip": "ParkingEntry.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAOwAAAAkAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-06T11:59:12.596Z",
               "EditorCaption": ""
@@ -314,8 +305,7 @@
               "RelativeToolTip": "Parkin.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAMQAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-06T10:41:50.022Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-06T10:41:50.022Z"
             },
             {
               "$type": "Document",

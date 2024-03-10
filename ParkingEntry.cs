@@ -14,6 +14,8 @@ namespace Parking
 {
     public partial class ParkingEntry : Form
     {
+
+
         private FlowLayoutPanel flowLayoutPanel2;
         ParkingRecordsManager prm = new ParkingRecordsManager();
         public event EventHandler ParkingRecordAdded;
